@@ -1,0 +1,22 @@
+spring:
+  kafka:
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      bootstrap-servers: 192.168.86.140:50467
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      bootstrap-servers: 192.168.86.140:50467
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.techienotes
+kafka:
+  request:
+    topic: order-request
+  reply:
+    topic: order-response
+  group:
+    id: order-response-group
